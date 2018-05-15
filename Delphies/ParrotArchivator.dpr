@@ -10,6 +10,7 @@ uses
 
 begin
   Application.Initialize;
+  Application.Title := 'Parrot Archivator';
   Application.CreateForm(TParrot, Parrot);
   Application.CreateForm(TForm1, Form1);
   Application.CreateForm(TForm2, Form2);
