@@ -1,6 +1,6 @@
 object Parrot: TParrot
-  Left = 229
-  Top = 197
+  Left = 332
+  Top = 361
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'Parrot'

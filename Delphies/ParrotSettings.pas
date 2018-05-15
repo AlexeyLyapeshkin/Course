@@ -7,7 +7,7 @@ uses
   Dialogs, StdCtrls;
 
 type
-  TForm2 = class(TForm)
+  TParrotSet = class(TForm)
     CheckBox2: TCheckBox;
   private
     { Private declarations }
@@ -16,7 +16,7 @@ type
   end;
 
 var
-  Form2: TForm2;
+  ParrotSet: TParrotSet;
 
 implementation
 

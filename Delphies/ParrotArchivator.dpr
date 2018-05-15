@@ -3,8 +3,8 @@ program ParrotArchivator;
 uses
   Forms,
   ParrotMain in 'ParrotMain.pas' {Parrot},
-  ParrotBar in 'ParrotBar.pas' {Form1},
-  ParrotSettings in 'ParrotSettings.pas' {Form2};
+  ParrotBar in 'ParrotBar.pas' {ParrotPB},
+  ParrotSettings in 'ParrotSettings.pas' {ParrotSet};
 
 {$R *.res}
 
@@ -12,7 +12,7 @@ begin
   Application.Initialize;
   Application.Title := 'Parrot Archivator';
   Application.CreateForm(TParrot, Parrot);
-  Application.CreateForm(TForm1, Form1);
-  Application.CreateForm(TForm2, Form2);
+  Application.CreateForm(TParrotPB, ParrotPB);
+  Application.CreateForm(TParrotSet, ParrotSet);
   Application.Run;
 end.

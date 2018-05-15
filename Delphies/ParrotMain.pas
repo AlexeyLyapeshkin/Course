@@ -468,12 +468,12 @@ begin
   LastBuf := ArchFile.FSizeWithoutHead mod SizeOfBuffer;
   MainBuffer.CreateBuf;
   CurrentPoint := ArchFile.Node;
-  Form1.ProgressBar.Min := 1;
-  Form1.ProgressBar.Max := CountBuf;
-  Form1.Visible := True;
+  ParrotPB.ProgressBar.Min := 1;
+  ParrotPB.ProgressBar.Max := CountBuf;
+  ParrotPB.Visible := True;
   for i := 1 to CountBuf do
   begin
-    Form1.ProgressBar.Position := i;
+    ParrotPB.ProgressBar.Position := i;
     BlockRead(FileIn, Buf, SizeOfBuffer);
     for j := 1 to SizeOfBuffer do
     begin
@@ -494,7 +494,7 @@ begin
 
     end;
   end;
-  form1.Visible := False;
+  ParrotPB.Visible := False;
   if LastBuf <> 0 then
   begin
     BlockRead(FileIn, Buf, LastBuf);
@@ -594,12 +594,12 @@ begin
     LastBuf := ArchFile.FSize mod SizeOfBuffer;
     buffer := '';
     CreateHead;
-    form1.ProgressBar.Min := 1;
-    Form1.ProgressBar.Max := CountBuf;
-    Form1.Visible := True;
+    ParrotPB.ProgressBar.Min := 1;
+    ParrotPB.ProgressBar.Max := CountBuf;
+    ParrotPB.Visible := True;
     for i := 1 to CountBuf do
     begin
-      Form1.ProgressBar.Position := i;
+      ParrotPB.ProgressBar.Position := i;
       BlockRead(FileIn, buf, SizeOfBuffer);
       for j := 1 to SizeOfBuffer do
       begin
@@ -609,7 +609,7 @@ begin
 
       end;
     end;
-    Form1.Visible := False;
+    ParrotPB.Visible := False;
     if LastBuf <> 0 then
     begin
       BlockRead(FileIn, buf, LastBuf);
@@ -740,7 +740,7 @@ begin
   begin
     RunEncodeHaff(OpenDialog1.FileName);
   end;
-  if Form2.CheckBox2.checked then
+  if ParrotSet.CheckBox2.checked then
     DeleteFile(OpenDialog1.Filename);
 end;
 
@@ -752,13 +752,13 @@ begin
   begin
     RunDecodeHaff(OpenDialog1.FileName);
   end;
-  if Form2.CheckBox2.checked then
+  if ParrotSet.CheckBox2.checked then
     DeleteFile(OpenDialog1.Filename);
 end;
 
 procedure TParrot.SettingsClick(Sender: TObject);
 begin
-  Form2.Visible := True;
+  ParrotSet.Visible := True;
 end;
 
 procedure TParrot.HelpClick(Sender: TObject);

@@ -7,9 +7,8 @@ uses
   Dialogs, ComCtrls, StdCtrls;
 
 type
-  TForm1 = class(TForm)
+  TParrotPB = class(TForm)
     ProgressBar: TProgressBar;
-    lbl1: TLabel;
   private
     { Private declarations }
   public
@@ -17,7 +16,7 @@ type
   end;
 
 var
-  Form1: TForm1;
+  ParrotPB: TParrotPB;
 
 implementation
 

@@ -1,10 +1,10 @@
-object Form2: TForm2
+object ParrotSet: TParrotSet
   Left = 250
-  Top = 222
+  Top = 221
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
-  Caption = 'Form2'
-  ClientHeight = 61
+  Caption = 'ParrotSet'
+  ClientHeight = 62
   ClientWidth = 538
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
