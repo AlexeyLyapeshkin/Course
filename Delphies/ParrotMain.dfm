@@ -14,6 +14,7 @@ object Parrot: TParrot
   Font.Style = []
   Menu = MainMenuOf
   OldCreateOrder = False
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object BackgroundOf: TImage
@@ -3682,11 +3683,11 @@ object Parrot: TParrot
   object MainMenuOf: TMainMenu
     Left = 40
     object CreateArch: TMenuItem
-      Caption = #1040#1088#1093#1080#1074#1080#1088#1086#1074#1072#1090#1100
+      Caption = #1057#1078#1072#1090#1100' '#1092#1072#1081#1083
       OnClick = CreateArchClick
     end
     object DeArch: TMenuItem
-      Caption = #1044#1077#1072#1088#1093#1080#1074#1080#1088#1086#1074#1072#1090#1100
+      Caption = #1056#1072#1079#1078#1072#1090#1100' '#1092#1072#1081#1083
       OnClick = DeArchClick
     end
     object Settings: TMenuItem
@@ -3695,6 +3696,7 @@ object Parrot: TParrot
     end
     object Help: TMenuItem
       Caption = #1055#1086#1084#1086#1097#1100
+      ShortCut = 112
       OnClick = HelpClick
     end
   end

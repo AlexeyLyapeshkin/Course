@@ -24,6 +24,7 @@ type
     procedure DeArchClick(Sender: TObject);
     procedure SettingsClick(Sender: TObject);
     procedure HelpClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -37,7 +38,7 @@ var
 implementation
 
 uses
-  ParrotBar,ParrotSettings;
+  ParrotBar, ParrotSettings;
 {$R *.dfm}
 
 type
@@ -303,7 +304,7 @@ function HuffCodeHelp(Node: TPNode; i: Byte): string;
 begin
 
   if (Node = nil) then
-    HuffCodeHelp := '+=='
+    HuffCodeHelp := '+'
   else
   begin
     if (Found(Node^.left, i)) then
@@ -674,63 +675,6 @@ begin
   ExtractFile;
 end;
 
-{procedure TParrot.CreateArchClick(Sender: TObject);
-begin
-  OutText.Visible := false;
-  OpenDialog1.Filter := 'Любые файлы|';
-  if OpenDialog1.Execute then
-  begin
-    RunEncodeHaff(OpenDialog1.FileName);
-   // ShowMessage('Файл успешно заархивирован.');
-  end;
-  if Form2.CheckBox2.checked then
-    DeleteFile(OpenDialog1.Filename);
-end;
-
-procedure TParrot.DeArchClick(Sender: TObject);
-begin
-  OutText.Visible := false;
-  OpenDialog1.Filter := 'Архив(.Loss)|*.Loss';
-  if OpenDialog1.Execute then
-  begin
-    RunDecodeHaff(OpenDialog1.FileName);
-  //  ShowMessage('Файл успешно разархивирован.');
-  end;
-  if Form2.CheckBox2.checked then
-    DeleteFile(OpenDialog1.Filename);
-end;
-
-procedure TParrot.HelpClick(Sender: TObject);
-var
-  f: TextFile;
-  line: string;
-  filename: string;
-begin
-  OutText.Clear;
-  OutText.Visible := True;
-  OpenDialog2.Filter := ' Только Файл (Help.LossHelp)|*LossHelp';
-  if OpenDialog2.execute then
-    filename := OpenDialog2.filename;
-  AssignFile(f, filename);
-  Reset(f);
-  while not (Eof(f)) do
-  begin
-    readln(f, line);
-    OutText.Lines.Add(line);
-  end;
-  CloseFile(f);
-end;
-
-procedure TParrot.SettingsClick(Sender: TObject);
-begin
-  Form2.Visible := True;
-end;
-
-procedure TParrot.btn1Click(Sender: TObject);
-begin
-  if BackFile <> '' then
-    BackgroundOf.Picture.LoadFromFile(BackFile);
-end; }
 
 procedure TParrot.CreateArchClick(Sender: TObject);
 begin
@@ -758,21 +702,24 @@ end;
 
 procedure TParrot.SettingsClick(Sender: TObject);
 begin
+  OutText.Visible := false;
   ParrotSet.Visible := True;
 end;
 
 procedure TParrot.HelpClick(Sender: TObject);
+begin
+  OutText.Visible := True;
+end;
+
+procedure TParrot.FormCreate(Sender: TObject);
 var
   f: TextFile;
   line: string;
   filename: string;
 begin
   OutText.Clear;
-  OutText.Visible := True;
-  OpenDialog2.Filter := ' Только Файл (Help.LossHelp)|*LossHelp';
-  if OpenDialog2.execute then
-    filename := OpenDialog2.filename;
-  AssignFile(f, filename);
+  OutText.Visible := false;
+  AssignFile(f, 'Help.LossHelp');
   Reset(f);
   while not (Eof(f)) do
   begin
@@ -780,7 +727,6 @@ begin
     OutText.Lines.Add(line);
   end;
   CloseFile(f);
-
 end;
 
 end.
