@@ -3674,6 +3674,7 @@ object Parrot: TParrot
     Lines.Strings = (
       'OutText')
     ReadOnly = True
+    ScrollBars = ssVertical
     TabOrder = 0
     Visible = False
   end

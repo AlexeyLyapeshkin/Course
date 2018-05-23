@@ -715,7 +715,6 @@ procedure TParrot.FormCreate(Sender: TObject);
 var
   f: TextFile;
   line: string;
-  filename: string;
 begin
   OutText.Clear;
   OutText.Visible := false;
